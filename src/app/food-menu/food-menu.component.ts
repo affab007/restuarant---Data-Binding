@@ -9,6 +9,8 @@ export class FoodMenuComponent implements OnInit {
   allowNewMenuItem = false;
   menuItemCreationStatus = "ไม่มีการเพิ่มรายการเมนู";
   menuItemName = "";
+  menuItemCreated = false;
+  menuList = ["ข้าวมันไก่","ข้าวหมูแดง"];
 
   constructor() {
     setTimeout( () => { this.allowNewMenuItem = true },3000);
@@ -18,6 +20,8 @@ export class FoodMenuComponent implements OnInit {
   ngOnInit(): void {
   }
   onCreateMenuItem() {
+    this.menuItemCreated = true;
+    this.menuList.push(this.menuItemName)
       this.menuItemCreationStatus = "รายการเมนู " + this.menuItemName + " ได้ถูกเพิ่มขึ้นแล้ว"
   }
   onUpdateMenuName(event: Event){
